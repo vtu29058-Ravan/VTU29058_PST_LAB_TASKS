@@ -1,20 +1,28 @@
-package Syllabus_Tasks;
-
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Syllabus_Task1_SalaryTransformation {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine().trim());
-        int[] salaries = Arrays.stream(sc.nextLine().trim().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        List<Integer> salaryList = new ArrayList<>();
 
-        String result = Arrays.stream(salaries)
-                .mapToObj(s -> String.valueOf(Math.round(s * 1.1)))
-                .collect(Collectors.joining(" "));
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
 
-        System.out.println(result);
+            for (int i = 0; i < n; i++) {
+                int salary = sc.nextInt();
+                salaryList.add((int) Math.round(salary * 1.1));
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < salaryList.size(); i++) {
+            if (i > 0) {
+                result.append(' ');
+            }
+            result.append(salaryList.get(i));
+        }
+
+        System.out.println(result.toString());
     }
 }

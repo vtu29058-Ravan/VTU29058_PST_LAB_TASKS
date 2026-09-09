@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PalindromeNumber {
+public class Week1_Task8_Placeholder {
 
     public static void main(String[] args) {
 

@@ -36,9 +36,10 @@ public class ClassRoom_Task8_DepartmentAlphabetical {
         List<Employee> employees = Employee.sampleData();
 
         List<Employee> sorted = employees.stream()
-                .sorted(Comparator.comparing(e -> e.department))
+                .sorted(Comparator.comparing((Employee e) -> e.department, String.CASE_INSENSITIVE_ORDER)
+                        .thenComparing(e -> e.name, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
 
         sorted.forEach(System.out::println);
     }
-}S
+}

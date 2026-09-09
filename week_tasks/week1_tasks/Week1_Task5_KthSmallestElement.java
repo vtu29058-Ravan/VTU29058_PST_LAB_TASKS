@@ -2,7 +2,7 @@ package Week_Tasks.Week1_Tasks;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Week1_Task4_KthSmallestElement {
+public class Week1_Task5_KthSmallestElement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

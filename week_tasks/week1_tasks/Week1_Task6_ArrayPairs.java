@@ -1,8 +1,7 @@
 package Week_Tasks.Week1_Tasks;
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Week1_Task4_KthSmallestElement {
+public class Week1_Task6_ArrayPairs {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -15,18 +14,11 @@ public class Week1_Task4_KthSmallestElement {
             arr[i] = sc.nextInt();
         }
 
-        System.out.print("Enter K: ");
-        int k = sc.nextInt();
-
-        if (k < 1 || k > n) {
-            System.out.println("Invalid K!");
-            return;
+        System.out.println("All possible pairs:");
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                System.out.println("(" + arr[i] + ", " + arr[j] + ")");
+            }
         }
-
-        
-        int[] sorted = arr.clone();
-        Arrays.sort(sorted);
-
-        System.out.println("The " + k + "th smallest element is: " + sorted[k - 1]);
     }
 }

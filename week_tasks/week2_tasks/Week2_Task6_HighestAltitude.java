@@ -1,4 +1,4 @@
-Dpackage Week_Tasks.Week2_Tasks;
+package Week_Tasks.Week2_Tasks;
 import java.util.*;
 
 public class Week2_Task6_HighestAltitude {

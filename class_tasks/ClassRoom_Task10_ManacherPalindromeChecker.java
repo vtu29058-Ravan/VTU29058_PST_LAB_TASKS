@@ -1,11 +1,12 @@
 package ClassRoom_Tasks;
 
 class Manacher {
+    private final String original;
     int[] p;
-
     String ms;
 
     Manacher(String s) {
+        original = s;
         ms = "@";
         for (char c : s.toCharArray()) {
             ms += "#" + c;
@@ -15,7 +16,7 @@ class Manacher {
         runManacher();
     }
 
-    void runManacher() {
+    private void runManacher() {
         int n = ms.length();
         p = new int[n];
         int l = 0, r = 0;
@@ -23,8 +24,9 @@ class Manacher {
         for (int i = 1; i < n - 1; ++i) {
             int mirror = l + r - i;
 
-            if (i < r)
+            if (i < r) {
                 p[i] = Math.min(r - i, p[mirror]);
+            }
 
             while (ms.charAt(i + 1 + p[i]) == ms.charAt(i - 1 - p[i])) {
                 ++p[i];
@@ -38,14 +40,23 @@ class Manacher {
     }
 
     int getLongest(int cen, int odd) {
-        int pos = 2 * cen + 2 + (odd == 0 ? 1 : 0);
+        int pos = 2 * cen + 1 + odd;
         return p[pos];
     }
 
     boolean check(int l, int r) {
-        int len = r - l + 1;
-        int cen = (l + r) / 2;
-        return len <= getLongest(cen, len % 2);
+        if (l < 0 || r >= original.length() || l > r) {
+            return false;
+        }
+
+        while (l < r) {
+            if (original.charAt(l) != original.charAt(r)) {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
     }
 }
 

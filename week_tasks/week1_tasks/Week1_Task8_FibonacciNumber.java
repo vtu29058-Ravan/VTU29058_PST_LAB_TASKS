@@ -6,7 +6,7 @@ interface Fibonacci {
     long calculate(int n);
 }
 
-public class Week1_Task7_FibonacciNumber {
+public class Week1_Task8_FibonacciNumber {
     public static void main(String[] args) {
        Scanner sc = new Scanner(System.in);
 
